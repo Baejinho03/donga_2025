@@ -1,17 +1,17 @@
-import csv  #csv 모듈 가져오기
+import csv        #  csv 모듈 가져오기
 
-wind = list()  #list 타입의 변수 'wind' 생성
+wind = list()                               #  list 타입의 변수 'wind' 생성
 
-f = open('weather_a.csv', 'r', encoding='cp949')  #'weather_a.csv' 파일 'read' 타입으로 열기
-rdr = csv.reader(f)  #파일의 주소를 'rdr' 변수에 넘김
+f = open('weather_a.csv', 'r', encoding='cp949')     #  'weather_a.csv' 파일 'read' 타입으로 열기
+rdr = csv.reader(f)                #  파일의 주소를 'rdr' 변수에 넘김
 
-def max_wind_speed(a):  #최대 풍속 구하고 출력하는 함수 정의
+def max_wind_speed(a):    #  최대 풍속 구하고 출력하는 함수 정의
 
   max_speed = float(a[1]) 
 
   for i in a[1:]:
     
-    if i == '':  #빈 문자열은 반복문을 실행하지 않음 
+    if i == '':      #빈 문자열은 반복문을 실행하지 않음 
       continue
 
     i = float(i)
@@ -20,8 +20,8 @@ def max_wind_speed(a):  #최대 풍속 구하고 출력하는 함수 정의
    
   print("지난 10년간 울릉도의 최대 풍속은 ", max_speed, "m/s")
 
-for row in rdr: #'rdr' 변수의 주소를 불러와 'weather_a.csv' 파일에서 세번째 열을 'wind' 변수에 넘김
+for row in rdr:         #'rdr' 변수의 주소를 불러와 'weather_a.csv' 파일에서 세번째 열을 'wind' 변수에 넘김
   wind.append(row[2]) 
 
-max_wind_speed(wind) #'max_wind_speed' 함수 호출
-f.close()  #파일 닫음
+max_wind_speed(wind)     #'max_wind_speed' 함수 호출
+f.close()      #파일 닫음
